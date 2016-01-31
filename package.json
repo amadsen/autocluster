@@ -1,0 +1,17 @@
+{
+  "name": "autocluster",
+  "version": "0.0.1",
+  "description": "Simplify the semantics for setting up a cluster of node processes",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/http.js"
+  },
+  "keywords": [
+    "cluster",
+    "autocluster",
+    "mutiprocess"
+  ],
+  "author": "Aaron Madsen <amadsen@codifiant.com>",
+  "license": "MIT",
+  "dependencies": {}
+}
