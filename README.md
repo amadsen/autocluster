@@ -10,14 +10,14 @@ npm install autocluster
 
 ## Use
 
-*Autocluster should only be used from a single module in a given process - if two modules running in the same process try to use autocluster it will throw an Error.*
+*Autocluster should only be used from a single module in a given process - if two modules running in the same process try to use Autocluster it will throw an Error.*
 
 Using Autocluster is fairly simple. Autocluster exports a function that you pass a cluster configuration to. Autocluster then builds a cluster matching that configuration. It looks something like this
 
 ~~~javascript
 var autocluster = require("../index.js"),
     http = require("http");
-    
+
 autocluster({
       master: "./lib/master-module.js",
       workers: [{
@@ -32,15 +32,17 @@ autocluster({
 });
 ~~~
 
-**Note**: Each process, master or worker, gets its own copy of the configuration so that workers can access functions defined in the module. _Changes to one process' configuration **are not** reflected in any of the other processes._ It is advised tha you make sure your configuration does not vary between proceeses.
+**Note**: Each process, master or worker, gets its own copy of the configuration so that workers can access functions defined in the module. _Changes to one process' configuration **are not** reflected in any of the other processes._ It is advised that you make sure your configuration does not vary between processes.
 
 ## Cluster Configuration
 
-An autocluster cluster configuration contains two top level keys
+An Autocluster cluster configuration contains two top level keys
 
-+ **master** - this should be function or a relative path to a module to be loaded in the context of the file in which the configuration is being passed to autocluster. If a function is provided or the module exports a function, cluster will call it, passing in one argument with two keys, **conf** containging the active configuration, and an **on** method that lets you register event listeners on the cluster's master process.
-+ **workers** - This may be a string, a function, a number, an object, or an array. In each case it is converted to a list containing worker definition objects. 
-	+ A string will be treated as a value for that worker definition's **run** key - that is, a path to a module - and loaded aproprately. Default values for all other keys will be used.
++ **master** - This should be function or a relative path to a module to be loaded in the context of the file in which the configuration is being passed to Autocluster. If a function is provided or the module exports a function, Autocluster will call it, passing in a single argument with two keys
+  + **conf** - the active configuration
+  + **on** - a method that lets you register event listeners on the cluster's master process.
++ **workers** - This may be a string, a function, a number, an object, or an array. In each case it is converted to a list containing worker definition objects.
+	+ A string will be treated as a value for that worker definition's **run** key - that is, a path to a module - and loaded appropriately. Default values for all other keys will be used.
 	+ A function will be treated as a value for that worker definition's **run** key. Default values for all other keys will be used.
 	+ A number will be treated as the value for that worker definition's **number** key. Default values for all other keys will be used.
 

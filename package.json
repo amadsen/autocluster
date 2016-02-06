@@ -1,6 +1,6 @@
 {
   "name": "autocluster",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simplify the semantics for setting up a cluster of node processes",
   "main": "index.js",
   "scripts": {
