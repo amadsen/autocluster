@@ -110,7 +110,8 @@ function startTestHttpServer() {
               console.log("In request handler stats worker is ", context.worker.id);
               console.log("In request handler stats worker has ", stats);
 
-              res.end(JSON.stringify(stats, null, 2));
+              res.setHeader('Content-Type', "application/json");
+              res.end(JSON.stringify(stats));
             });
             server.listen(context.port);
           }
