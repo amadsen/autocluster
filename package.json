@@ -13,5 +13,16 @@
   ],
   "author": "Aaron Madsen <amadsen@codifiant.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amadsen/autocluster.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amadsen/autocluster/issues"
+  },
+  "homepage": "https://github.com/amadsen/autocluster"
 }
